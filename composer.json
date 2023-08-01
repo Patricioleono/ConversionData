@@ -1,0 +1,18 @@
+{
+    "name": "vendor/php",
+    "description": "Conversion datos reloj control",
+    "type": "composer-plugin",
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.29"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vendor\\Php\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Patricio Leon Ormazabal"
+        }
+    ]
+}

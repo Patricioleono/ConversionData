@@ -2,8 +2,8 @@
 <?php 
 $date = getdate();
 $dataCode = $date['mday'].$date['mon'].$date['year'];
-$rutaTxt = "src/reloj_control_".$dataCode.".txt";
-
+$rutaTxt = "src/subirSirh/punch".$dataCode.".log";
+$rutaExcel = "src/respaldoExcel/Marcas_".$dataCode.".xlsx";
 
 ?>
 
@@ -14,6 +14,7 @@ $rutaTxt = "src/reloj_control_".$dataCode.".txt";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversion Datos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/css/style.css">
 </head>
 <body>
     <nav class="navbar bg-body-tertiary">
@@ -26,7 +27,6 @@ $rutaTxt = "src/reloj_control_".$dataCode.".txt";
     <div class="row justify-content-center">
         <div class="col-auto text-center">
            <div class="container mt-2">
-
                 <br />
                     <h4>Ingrese Archivo a Convertir</h4>
                 <br />
@@ -39,17 +39,35 @@ $rutaTxt = "src/reloj_control_".$dataCode.".txt";
                     </div>
                 </form>
                 <div class="container mt-2">
+
                     <?php if(file_exists($rutaTxt)){ ?>
                         <br />
-                            <a class="btn btn-outline-primary" href="descarga.php" role="button">Descargar Archivo</a>
+                            <a class="btn btn-outline-primary" href="descarga.php" role="button">Descargar Archivo Log</a>
                         <br />
                     <?php }else{ ?>
                         <br />
                     <?php } ?>
+
+                    
+                    <?php if(file_exists($rutaExcel)){ ?>
+                        <br />
+                            <a class="btn btn-outline-primary" href="descargaExcel.php" role="button">Descargar Respaldo Excel</a>
+                        <br />
+                    <?php }else{ ?>
+                        <br />
+                    <?php } ?>
+                   
                 </div>
            </div>
         </div>
     </div>
+    <footer class="container-fluid">
+        <nav class="navbar justify-content-center">
+            <a class="navbar-brand ms-3" href="index.php">
+               Convertidor Creado Con &#10084; Por Patricio Leon Ormazabal
+            </a>
+        </nav>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
